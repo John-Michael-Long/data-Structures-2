@@ -12,38 +12,49 @@ class HashTable {
       bucket = [[key, value]];
       this._storage.set(index, bucket);
     } else {
-      let count = 0;
-      let isFound = false;
-
-      //factor this out later using retreive
-      while (!isFound && count < bucket.length) {
-        if (bucket[count][0] === key) {
-          bucket[count][1] = value;
-          isFound = true;
+      
+      this.search(key, (oldValue, index) => {
+        if (oldValue !== false) {
+          bucket[index][1] = value;
+        } else {
+          bucket.push([key, value]);
         }
-        count++;
-      }
-      if (!isFound) {
-        bucket.push([key, value]);
-      }
-
+      }) 
+      
       this._storage.set(index, bucket);
     }
   }
 
   retrieve(key) {
+    return this.search(key, value => {
+      return value;
+    })   
+  }
+
+  remove(key) {
+    return this.search(key, (value, index, bucketIndex) => {
+      if (value !== false) {
+        
+      }
+    });
+  }
+
+  search(key, callback) {
     let index = getIndexBelowMaxForKey(key, this._limit);
     let bucket = this._storage.get(index)
 
     for (let i = 0; i < bucket.length; i++) {
       if (bucket[i][0] === key) {
-        return bucket[i][1];
+        return callback(bucket[i][1], i, index);      
       }
     }
-    return false;    
+
+    return callback(false);  
   }
 
-  remove(key) {
 
-  }
 }
+
+
+
+
