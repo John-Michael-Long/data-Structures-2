@@ -1,5 +1,5 @@
 describe('binarySearchTree', function() {
-  var binarySearchTree;
+  let binarySearchTree;
 
   beforeEach(function() {
     binarySearchTree = new BinarySearchTree(5);
