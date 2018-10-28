@@ -1,0 +1,23 @@
+In order of priority:
+
+doublyLinkedList
+Tri
+BinarySearch (array)
+
+BinarySearchTree:
+- inOrderTraversal
+- preOrderTraversal
+- postOrderTraversal
+
+Graph:
+- Depth-first search
+- Breath-first search
+
+Min-heap (array and tree)
+
+BST
+- restructure tree to make it true BST
+- isComplete?
+- isFull?
+- isPerfect?
+- isBalanced?
