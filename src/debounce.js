@@ -80,3 +80,68 @@ document.getElementByID('button-id').addEventListener("click", debounce(e => {
 
 
 */
+
+// Make a function that takes f and returns a  function that calls f on a timeout?
+/*
+const func = function(f) {
+  // return setTimeout(f, 1000)
+  return () => { 
+    setTimeout(() => { f() }, 1000)
+  }
+}
+
+const cb = () => {
+  console.log('hello')
+}
+// const func2 = func(cb)
+// func2()
+
+
+function delay(f, duration) {
+  return (...args) => {
+    setTimeout(() => {
+      f(...args)
+    }, duration)
+  }
+}
+
+const cb2 = vals => {
+  console.log('some vals:', vals)
+}
+
+const delayed = delay(cb2, 1000)
+
+delayed(['val1', 'val2'])
+*/
+
+
+
+/*
+function foo(f){
+  return (function() {
+    setTimeout(function() {f();}, 0);
+  })();
+}
+function delay(f, duration) {
+  return (...args) =&gt; {
+      setTimeout[() =&gt; {
+          f(...args);
+      }, duration);
+  }
+}
+function callOnTimeout(f){
+  const fcnToReturn = function (to){
+    setTimeout[f, to)
+  }
+  return fcnToReturn
+}
+ 
+const f = function (){
+  console.log ('i got called')
+}
+ 
+const myTimeoutFcn = callOnTimeout(f)
+ 
+myTimeoutFcn(2000)
+*/
+
